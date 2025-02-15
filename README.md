@@ -106,6 +106,18 @@ mix test
 iex -S mix run
 
 #==> Open browse with URL: http://localhost:8080
+
+## recompile dùng để build lại source code mới khi project vẫn đang chạy.
+iex(1)> recompile
+
+# Start docker compose mongodb
+docker compose up -d
+
+# Stop docker compose mongodb
+docker compose stop
+
+# Stop & Remove container docker compose mongodb
+docker compose down
 ```
 
 

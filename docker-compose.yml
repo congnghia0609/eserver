@@ -1,0 +1,14 @@
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb-v6.0
+    ports:
+      - 28018:27017
+    networks:
+      - mongo_net
+    volumes:
+      - /data/docker/db:/data/db
+
+networks:
+  mongo_net:
+    driver: bridge
