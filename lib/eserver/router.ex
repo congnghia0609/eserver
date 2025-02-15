@@ -21,11 +21,13 @@ defmodule Eserver.Router do
   plug(:dispatch)
 
   # Handler for Get request with "/" path
+  # http://localhost:8080/
   get "/" do
     send_resp(conn, 200, "OK")
   end
 
-  get "knockknock" do
+  # http://localhost:8080/ping
+  get "ping" do
     case Mongo.command(:mongo, ping: 1) do
       {:ok, _res} ->
         send_resp(conn, 200, "Who's there?")

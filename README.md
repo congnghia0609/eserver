@@ -5,7 +5,43 @@ eserver is a simple Elixir Restful Server with CowBoy and MongoDB
 # Environment
 Install [Elixir](https://elixir-lang.org/install.html), [MongoDB](https://www.mongodb.com/docs/manual/installation/), [Docker Desktop](https://docs.docker.com/desktop/).  
 
-## Install Docker Desktop
+
+
+# Run project
+```bash
+# Start MongoDB.
+## Start docker compose mongodb
+docker compose up -d
+
+## Stop docker compose mongodb
+docker compose stop
+
+## Stop & Remove container docker compose mongodb
+docker compose down
+
+
+# Create project
+## flag --sup creates application with a supervision tree.
+mix new eserver --sup
+
+# Install dependencies
+mix deps.get
+
+# Run test
+mix test
+
+# Start server
+iex -S mix run
+
+#==> Open browse with URL: http://localhost:8080
+
+## recompile dùng để build lại source code mới khi project vẫn đang chạy.
+iex(1)> recompile
+
+```
+
+
+# Install Docker Desktop
 Docker Desktop là đã bao gồm các thành phần như: Docker Engine, Docker CLI client, Docker Scout, Docker Build, Docker Extensions, Docker Compose, Docker Content Trust, Kubernetes, Credential Helper.  
 
 1. Set up Docker's package repository. See step one of [Install using the apt repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).  
@@ -87,37 +123,13 @@ Server: Docker Desktop 4.38.0 (181591)
 Chỉ cần tải lại version mới rồi chạy lệnh cài đặt lại:  
 ```bash
 sudo apt-get install ./docker-desktop-amd64.deb
-```
 
 
-# Init project
-```bash
-# Create project
-## flag --sup creates application with a supervision tree.
-mix new eserver --sup
-
-# Install dependencies
-mix deps.get
-
-# Run test
-mix test
-
-# Start server
-iex -S mix run
-
-#==> Open browse with URL: http://localhost:8080
-
-## recompile dùng để build lại source code mới khi project vẫn đang chạy.
-iex(1)> recompile
-
-# Start docker compose mongodb
-docker compose up -d
-
-# Stop docker compose mongodb
-docker compose stop
-
-# Stop & Remove container docker compose mongodb
-docker compose down
+7. Thêm thư mục /data vào File Sharing trên Tool Docker Desktop.  
+Error response from daemon: Mounts denied: 
+The path /data/docker/db is not shared from the host and is not known to Docker.
+You can configure shared paths from Docker -> Preferences... -> Resources -> File Sharing.
+See https://docs.docker.com/ for more info.
 ```
 
 
