@@ -10,6 +10,7 @@ defmodule Eserver.Application do
     children = [
       # Starts a worker by calling: Eserver.Worker.start_link(arg)
       # {Eserver.Worker, arg}
+      {Plug.Cowboy, scheme: :http, plug: Eserver.Router, options: [port: 8080]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

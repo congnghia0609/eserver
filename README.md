@@ -96,6 +96,16 @@ sudo apt-get install ./docker-desktop-amd64.deb
 ## flag --sup creates application with a supervision tree.
 mix new eserver --sup
 
+# Install dependencies
+mix deps.get
+
+# Run test
+mix test
+
+# Start server
+iex -S mix run
+
+#==> Open browse with URL: http://localhost:8080
 ```
 
 
