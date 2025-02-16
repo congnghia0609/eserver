@@ -40,6 +40,51 @@ iex(1)> recompile
 
 ```
 
+# Call API
+## Add New Post
+```bash
+curl -X POST -i 'http://127.0.0.1:8080/post' \
+  -H "Content-Type: application/json" \
+  --data '{
+    "name": "name1",
+    "content": "content1"
+  }'
+
+{"content":"content1","id":"67b1d3c3f7de9f9a139ddcb8","name":"name1"}
+
+{"content":"content2","id":"67b1d598f7de9f9a1373005e","name":"name2"}
+```
+
+## Get Post
+```bash
+# Get a post
+curl -X GET -H 'Content-Type: application/json' \
+  -i 'http://127.0.0.1:8080/post/67b1d3c3f7de9f9a139ddcb8'
+
+# Get all posts
+curl -X GET -H 'Content-Type: application/json' \
+  -i 'http://127.0.0.1:8080/posts'
+```
+
+## Update Post
+```bash
+curl -X PUT -i 'http://127.0.0.1:8080/post/67b1d3c3f7de9f9a139ddcb8' \
+  -H "Content-Type: application/json" \
+  --data '{
+    "name": "name1 update",
+    "content": "content1 update"
+  }'
+
+{"content":"content1 update","id":"67b1d3c3f7de9f9a139ddcb8","name":"name1 update"}
+```
+
+## Delete Post
+```bash
+curl -X DELETE -H 'Content-Type: application/json' \
+  -i 'http://127.0.0.1:8080/post/67b1d598f7de9f9a1373005e'
+```
+
+
 
 # Install Docker Desktop
 Docker Desktop là đã bao gồm các thành phần như: Docker Engine, Docker CLI client, Docker Scout, Docker Build, Docker Extensions, Docker Compose, Docker Content Trust, Kubernetes, Credential Helper.  
@@ -123,13 +168,14 @@ Server: Docker Desktop 4.38.0 (181591)
 Chỉ cần tải lại version mới rồi chạy lệnh cài đặt lại:  
 ```bash
 sudo apt-get install ./docker-desktop-amd64.deb
-
+```
 
 7. Thêm thư mục /data vào File Sharing trên Tool Docker Desktop.  
-Error response from daemon: Mounts denied: 
-The path /data/docker/db is not shared from the host and is not known to Docker.
-You can configure shared paths from Docker -> Preferences... -> Resources -> File Sharing.
-See https://docs.docker.com/ for more info.
+```bash
+Error response from daemon: Mounts denied:  
+The path /data/docker/db is not shared from the host and is not known to Docker.  
+You can configure shared paths from Docker -> Preferences... -> Resources -> File Sharing.  
+See https://docs.docker.com/ for more info.  
 ```
 
 
