@@ -24,7 +24,8 @@ defmodule Eserver.Application do
         Mongo,
         [
           name: :mongo,
-          url: Application.get_env(:eserver, :db_url)
+          url: Application.get_env(:eserver, :db_url),
+          pool_size: Application.get_env(:eserver, :pool_size)
         ]
       }
     ]
