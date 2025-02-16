@@ -3,7 +3,7 @@ eserver is a simple Elixir Restful Server with CowBoy and MongoDB
 
 
 # Environment
-Install [Elixir](https://elixir-lang.org/install.html), [MongoDB](https://www.mongodb.com/docs/manual/installation/), [Docker Desktop](https://docs.docker.com/desktop/).  
+Install [Elixir](https://elixir-lang.org/install.html), [Docker Desktop](https://docs.docker.com/desktop/), [MongoDB](https://www.mongodb.com/docs/manual/installation/) with [mongodb_driver](https://github.com/zookzook/elixir-mongodb-driver) and [hexdocs mongodb](https://hexdocs.pm/mongodb_driver/Mongo.html).  
 
 
 
@@ -82,6 +82,10 @@ curl -X PUT -i 'http://127.0.0.1:8080/post/67b1d3c3f7de9f9a139ddcb8' \
 ```bash
 curl -X DELETE -H 'Content-Type: application/json' \
   -i 'http://127.0.0.1:8080/post/67b1d598f7de9f9a1373005e'
+
+{"id":"67b1d598f7de9f9a1373005e"}
+or
+Not found
 ```
 
 
